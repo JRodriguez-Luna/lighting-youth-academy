@@ -1,12 +1,17 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 export const HeroCard = () => {
   return (
     // Hero
     <div className='flex flex-col p-10 gap-10 bg-black w-full'>
-      <div className='flex flex-col text-white gap-10'>
+      <div className='flex flex-col items-center text-white gap-10'>
         {/* location - button for navigating */}
-        <button>Santa Ana, CA</button>
+        <button className='px-4 py-2 w-50 text-yellow-400 border border-yellow-500 rounded-3xl bg-yellow-400/40'>
+          Santa Ana, CA
+        </button>
         {/* Title */}
-        <div className='flex flex-col text-center'>
+        <div className='flex flex-col flex-wrap text-center'>
           <h1 className='uppercase text-7xl max-md:text-3xl'>
             Inspiring Youth Runners{' '}
             <section className='text-yellow-300'>Through Learning</section> And
@@ -15,8 +20,11 @@ export const HeroCard = () => {
         </div>
         {/* Buttons - Register for 2026 & Learn More */}
         <div className='flex gap-10 justify-center'>
-          <button>Register for 2026</button>
-          <button>Learn More</button>
+          <button className='px-6 py-3 bg-yellow-300 rounded text-black'>
+            Register for 2026
+            <FontAwesomeIcon className='pl-2' icon={faArrowRight} />
+          </button>
+          <button className='px-6 py-3 border rounded'>Learn More</button>
         </div>
       </div>
     </div>
