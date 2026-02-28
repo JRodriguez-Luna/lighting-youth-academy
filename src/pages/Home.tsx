@@ -1,3 +1,10 @@
+import { HeroCard } from "../components/HeroCard"
+
 export const Home = () => {
-  return 'Home Page'
+  return (
+    // fix width
+    <div className="flex w-full">
+      <HeroCard />
+    </div>
+  )
 }
