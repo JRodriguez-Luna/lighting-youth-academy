@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-export const MobileMenu = ({
+export const MobileMenuModal = ({
   isOpen,
   nav,
   onClose,
@@ -14,7 +14,7 @@ export const MobileMenu = ({
   if (!isOpen) return null;
 
   return (
-    <div className='fixed inset-0 bg-black text-white flex flex-col items-center justify-center gap-8 z-50'>
+    <dialog className='h-dvh w-dvw inset-0 bg-black text-white flex flex-col items-center justify-center gap-8 z-50'>
       {/* X button */}
       <button onClick={onClose} className='absolute top-5 right-6'>
         <FontAwesomeIcon icon={faXmark} className='fa-2x' />
@@ -34,7 +34,7 @@ export const MobileMenu = ({
       <button className='px-4 py-2 bg-yellow-300 rounded text-black font-semibold'>
         Donate Today
       </button>
-    </div>
+    </dialog>
   );
 };
 

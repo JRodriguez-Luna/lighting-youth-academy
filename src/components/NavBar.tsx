@@ -1,8 +1,8 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-import { MobileMenu } from './MobileMenu';
+import { MobileMenuModal } from './MobileMenuModal';
 
 const nav = [
   'Home',
@@ -14,16 +14,16 @@ const nav = [
 ];
 
 export const NavBar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
       {/* Remove hidden after mobile devlopment for test */}
-      <header className='w-full h-20 bg-black text-white'>
+      <header className={`w-full h-20 bg-black text-white {}`}>
         {/* Mobile: hamburger only */}
         <div className='flex items-center justify-between px-6 h-full md:hidden'>
           <div>Logo Here</div>
-          <button onClick={() => setIsOpen(true)}>
+          <button onClick={() => setIsModalOpen(true)}>
             <FontAwesomeIcon icon={faBars} className='fa-2x' />
           </button>
         </div>
@@ -45,7 +45,11 @@ export const NavBar = () => {
       </header>
 
       {/* Mobile menu rendered outside header */}
-      <MobileMenu isOpen={isOpen} nav={nav} onClose={() => setIsOpen(false)} />
+      <MobileMenuModal
+        isOpen={isModalOpen}
+        nav={nav}
+        onClose={() => setIsModalOpen(false)}
+      />
 
       {/* Main Content */}
       <main>
